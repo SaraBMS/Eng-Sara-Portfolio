@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sara Albishlawy — Portfolio
 
-## Getting Started
+Personal portfolio for Sara Albishlawy, Frontend & React Native Developer. Built with Next.js (App Router), TypeScript, Tailwind CSS v4, and Framer Motion. Statically exported and deployed to GitHub Pages.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+`output: 'export'` in `next.config.ts` makes this write a fully static site to `./out`. There's no server-only feature in use, so `next start` isn't part of the deploy path — GitHub Pages just serves `./out` directly.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repo to GitHub.
+2. In the repo, go to **Settings → Pages** and set **Source** to **"GitHub Actions"**.
+3. Push to `main` — `.github/workflows/deploy.yml` builds and deploys automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`next.config.ts` auto-detects the correct `basePath` from `GITHUB_REPOSITORY` at build time, so this works whether the repo is a project site (`username.github.io/repo-name`) or the special root user site (`username.github.io`) — nothing to configure manually.
 
-## Deploy on Vercel
+## Adding real content later
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Project screenshots**: drop image files (`.png`, `.jpg`, `.webp`, etc.) into `public/assets/projects/<slug>/` (see `lib/projects.ts` for the slugs). They're picked up automatically on the next build/dev reload — no code changes needed. The first image found becomes a project's card cover image; all of them show in that project's case-study gallery.
+- **CV**: add the PDF at `public/cv/sara-albishlawy-cv.pdf` (see `site.cvFileName` in `lib/site.ts`). The "Download CV" button activates automatically once the file exists — until then it renders as a disabled "CV coming soon" state instead of a dead link.
+- **MTN DNO live demo link**: fill in `links.demo` for the `mtn-dno` entry in `lib/projects.ts` once you have the URL.
+- **New projects / experience**: edit `lib/projects.ts` and `lib/experience.ts` — both are plain typed data arrays, no other files need to change.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+```
+app/            Routes: home page, /work/[slug] case studies, layout, metadata
+components/     Reusable UI (buttons, tags, nav, project cards, motion wrapper)
+sections/       Homepage sections (Hero, Selected Work, About, Experience, Skills, Contact)
+lib/            Typed content data + small server-only helpers (image scan, CV check, basePath)
+public/         Static assets — project screenshots and the CV go here
+```
