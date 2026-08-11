@@ -124,11 +124,11 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "supercars-mobile",
-    title: "SuperCars Virtual Garage Mobile",
+    slug: "supercars-mobile-v1",
+    title: "SuperCars Mobile — Version 1",
     category: "React Native · Mobile",
     description:
-      "Developed a cross-platform mobile application showcasing luxury vehicles with secure authentication, responsive layouts, touch-optimized navigation, and smooth native animations.",
+      "Developed a cross-platform mobile application showcasing luxury vehicles with a social feed, an AI concierge, brand/owner groups, and secure authentication. Built touch-optimized navigation and smooth native animations throughout.",
     technologies: ["React Native", "Expo", "TypeScript", "React Navigation"],
     role: "React Native Development · UI/UX & Interface Design",
     proprietary: true,
@@ -138,18 +138,43 @@ export const projects: Project[] = [
       problem:
         "The SuperCars concept needed a cross-platform mobile counterpart with native-feeling interaction and secure access.",
       contribution:
-        "Designed the mobile interface and interaction experience — including navigation, authentication flows, and animation — then implemented it with React Native and Expo for a cross-platform, native-feeling experience.",
+        "Designed the mobile interface and interaction experience — including the social feed, AI concierge chat, brand/owner groups, and authentication flows — then implemented it with React Native and Expo for a cross-platform, native-feeling experience.",
       keyFeatures: [
+        "Social feed for owners and brand groups",
+        "\"Miles\" AI concierge chat",
         "Secure authentication",
         "Touch-optimized navigation",
         "Smooth native animations",
-        "Cross-platform iOS & Android support",
       ],
       technicalHighlights: [
         "Built with React Native & Expo",
         "Navigation handled with React Navigation",
         "TypeScript throughout for type safety",
       ],
+    },
+  },
+  {
+    slug: "supercars-mobile-v0",
+    title: "SuperCars Mobile — Version 0",
+    category: "React Native · Mobile · Concept",
+    description:
+      "An earlier concept pass for the SuperCars mobile app, exploring a more editorial, photography-led direction — a curated vault of featured collections, an activity/intelligence feed, and private member lounges.",
+    technologies: ["React Native", "Expo", "TypeScript"],
+    role: "React Native Development · UI/UX & Interface Design",
+    proprietary: true,
+    featured: true,
+    order: 5,
+    caseStudy: {
+      problem:
+        "Before settling on Version 1's social-feed direction, the concept needed exploring as a more premium, photography-led vault experience.",
+      contribution:
+        "Explored an alternate interface direction for the SuperCars mobile app — a photography-led collections vault, an activity feed, and private member lounges — as an earlier concept iteration.",
+      keyFeatures: [
+        "Featured collections vault",
+        "Activity/intelligence feed",
+        "Private member lounges",
+      ],
+      technicalHighlights: ["Built with React Native & Expo", "TypeScript throughout for type safety"],
     },
   },
   {
@@ -162,7 +187,7 @@ export const projects: Project[] = [
     role: "Frontend Development · UI/UX & Interface Design",
     proprietary: true,
     featured: true,
-    order: 5,
+    order: 6,
     caseStudy: {
       problem:
         "Oona needed an enterprise dashboard with dynamic, user-configurable layouts and reliable state management across widgets.",
@@ -178,22 +203,27 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "work-culture",
-    title: "Work Culture Dashboard",
-    category: "Enterprise Dashboard",
+    slug: "losyro",
+    title: "LOSYRO",
+    category: "Team Performance Platform",
     description:
-      "Designed and developed an internal dashboard for employee engagement and company culture management. Implemented reusable React components, API integration, responsive layouts, and performance optimizations.",
+      "Designed and developed LOSYRO, a team goal-tracking and performance platform featuring setter/goal completion tracking, monthly performance statistics, a team leaderboard, and an in-app FAQ flow. Implemented reusable React components, API integration, responsive layouts, and performance optimizations.",
     technologies: ["React.js", "React Router", "Tailwind CSS", "REST APIs"],
     role: "Frontend Development · UI/UX & Interface Design",
     proprietary: false,
     featured: true,
-    order: 6,
+    order: 7,
     caseStudy: {
       problem:
-        "The organization needed an internal dashboard to support employee engagement and company culture management.",
+        "Teams needed a single place to track individual and team goals (\"setters\"), monitor performance trends over time, and surface team rankings.",
       contribution:
-        "Contributed to the interface design of the employee engagement dashboard, then implemented it with reusable React components, API integration, responsive layouts, and performance optimizations.",
-      keyFeatures: ["Employee engagement tracking", "Company culture management tools"],
+        "Contributed to the interface design of LOSYRO's goal-tracking dashboard, then implemented it with reusable React components, API integration, responsive layouts, and performance optimizations.",
+      keyFeatures: [
+        "Goal (\"Setter\") completion tracking",
+        "Monthly performance statistics",
+        "Team leaderboard & rankings",
+        "In-app FAQ / support flow",
+      ],
       technicalHighlights: [
         "Reusable component architecture",
         "REST API integration",
@@ -212,7 +242,7 @@ export const projects: Project[] = [
     role: "Frontend Development · UI/UX & Interface Design",
     proprietary: false,
     featured: true,
-    order: 7,
+    order: 8,
     caseStudy: {
       problem:
         "A bilingual digital voucher platform needed secure authentication and a complete, responsive checkout experience.",

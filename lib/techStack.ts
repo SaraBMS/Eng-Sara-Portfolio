@@ -11,4 +11,21 @@ export const techStack = {
     "Framer Motion",
   ],
   tools: ["Git", "GitHub", "Figma", "Postman", "Chrome DevTools"],
+  // Curated per-chapter groupings for the Web/Mobile scenes — same real stack,
+  // presented as two thematic chapters instead of one flat grid.
+  web: [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "Redux Toolkit",
+    "React Query / TanStack Query",
+    "React Router",
+    "React DnD",
+    "REST APIs",
+    "Vite",
+    "Framer Motion",
+  ],
+  mobile: ["React Native", "Expo", "TypeScript", "JavaScript", "REST APIs"],
 } as const;

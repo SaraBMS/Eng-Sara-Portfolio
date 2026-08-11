@@ -12,6 +12,33 @@
   --accent-hover: #92400e;
   --accent-soft: #fef3e6;
   --accent-soft-border: #fde3c2;
+
+  /* Used only by sections that sit over the dark→light atmosphere's early,
+     dark chapters (Hero, Web, Mobile) — everything else keeps the tokens
+     above unchanged. */
+  --on-dark-foreground: #f7f3ec;
+  --on-dark-muted: #b9c0d6;
+  --on-dark-muted-soft: #7d81a0;
+  --on-dark-border: rgba(247, 243, 236, 0.22);
+  --on-dark-border-strong: rgba(247, 243, 236, 0.38);
+  --on-dark-accent-soft: rgba(180, 83, 9, 0.22);
+  --on-dark-accent-soft-border: rgba(224, 145, 47, 0.4);
+  /* A warmer, lighter gold than --accent — the light-mode amber reads muddy
+     against the atmosphere's cool navy chapters (Hero/Web/Mobile), so dark
+     tone UI (eyebrows, emphasized tags, badges) uses this instead. Same hue
+     as --on-dark-accent-soft-border at full opacity, so the two stay related. */
+  --on-dark-accent: #e0912f;
+
+  /* The page's single continuous dark→light atmosphere. Each section's
+     background picks up where the previous one's gradient ends, so the
+     whole page reads as one uninterrupted transition with no JS involved. */
+  --atmo-1: #0b0e18;
+  --atmo-2: #141a30;
+  --atmo-3: #232a4a;
+  --atmo-4: #3a3145;
+  --atmo-5: #6b5a4a;
+  --atmo-6: #cbb996;
+  --atmo-7: #f3e9d6;
 }
 
 @theme inline {
@@ -26,6 +53,14 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
   --color-accent-soft-border: var(--accent-soft-border);
+  --color-on-dark-foreground: var(--on-dark-foreground);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-on-dark-muted-soft: var(--on-dark-muted-soft);
+  --color-on-dark-border: var(--on-dark-border);
+  --color-on-dark-border-strong: var(--on-dark-border-strong);
+  --color-on-dark-accent-soft: var(--on-dark-accent-soft);
+  --color-on-dark-accent-soft-border: var(--on-dark-accent-soft-border);
+  --color-on-dark-accent: var(--on-dark-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -58,4 +93,30 @@ html {
 ::selection {
   background: var(--accent-soft);
   color: var(--accent-hover);
+}
+
+/* Moon → sun glow. --moon-t (0 = moon, 1 = fully resolved sun/light) is
+   written by MoonAtmosphere.tsx as the user scrolls the whole page. */
+.moon-orb {
+  --moon-t: 0;
+  position: absolute;
+  top: 10vh;
+  right: 8vw;
+  width: min(30vw, 380px);
+  height: min(30vw, 380px);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 38% 35%,
+    color-mix(in oklab, #e8edfb calc((1 - var(--moon-t)) * 100%), #fff9ec calc(var(--moon-t) * 100%)) 0%,
+    color-mix(in oklab, #aab4d6 calc((1 - var(--moon-t)) * 100%), #ffdf9e calc(var(--moon-t) * 100%)) 42%,
+    transparent 72%
+  );
+  filter: blur(1px);
+  opacity: calc(0.85 - var(--moon-t) * 0.35);
+}
+
+@supports not (background: color-mix(in oklab, red, blue)) {
+  .moon-orb {
+    background: radial-gradient(circle at 38% 35%, #e8edfb 0%, #aab4d6 42%, transparent 72%);
+  }
 }

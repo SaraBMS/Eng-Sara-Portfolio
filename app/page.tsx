@@ -1,9 +1,10 @@
 import { Hero } from "@/sections/Hero";
+import { SceneWeb } from "@/components/scenes/SceneWeb";
+import { SceneMobile } from "@/components/scenes/SceneMobile";
 import { SelectedWork } from "@/sections/SelectedWork";
 import { About } from "@/sections/About";
-import { Experience } from "@/sections/Experience";
-import { TechStack } from "@/sections/TechStack";
 import { Contact } from "@/sections/Contact";
+import { MoonAtmosphere } from "@/components/layout/MoonAtmosphere";
 import { cvExists } from "@/lib/cvStatus";
 
 export default function Home() {
@@ -11,11 +12,12 @@ export default function Home() {
 
   return (
     <>
+      <MoonAtmosphere />
       <Hero />
+      <SceneWeb />
+      <SceneMobile />
       <SelectedWork />
       <About />
-      <Experience />
-      <TechStack />
       <Contact cvAvailable={cvAvailable} />
     </>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "inverse";
 
 const variantClasses: Record<Variant, string> = {
   primary:
@@ -10,6 +10,9 @@ const variantClasses: Record<Variant, string> = {
     "bg-transparent text-foreground border border-border-strong hover:border-accent hover:text-accent-hover",
   ghost:
     "bg-transparent text-foreground border border-transparent hover:text-accent-hover px-0",
+  // For buttons placed over the atmosphere's dark chapters (Hero, Web, Mobile).
+  inverse:
+    "bg-transparent text-on-dark-foreground border border-on-dark-border-strong hover:border-accent hover:text-white",
 };
 
 interface ButtonProps {

@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { ProjectGallery } from "@/components/projects/ProjectGallery";
+import { ProjectSlideshow } from "@/components/work/ProjectSlideshow";
 import { site } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -55,7 +55,12 @@ export default async function ProjectPage({
   const caseStudy = project.caseStudy;
 
   return (
-    <article className="py-20 sm:py-28">
+    <article className="relative overflow-hidden py-20 sm:py-28">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-105 bg-[radial-gradient(ellipse_at_top,var(--accent-soft)_0%,transparent_65%)] opacity-60"
+        aria-hidden="true"
+      />
+
       <Container className="max-w-4xl">
         <Reveal>
           <Link
@@ -71,10 +76,10 @@ export default async function ProjectPage({
           <p className="mt-8 font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
             {project.category}
           </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="mt-3 text-5xl font-semibold tracking-tight text-foreground sm:text-7xl">
             {project.title}
           </h1>
-          <p className="mt-3 text-sm text-muted-soft">
+          <p className="mt-4 text-sm text-muted-soft">
             <span className="font-medium text-muted">My Role:</span> {project.role}
           </p>
         </Reveal>
@@ -117,18 +122,37 @@ export default async function ProjectPage({
             </div>
           </Reveal>
         </div>
+      </Container>
 
-        <div className="mt-14 border-t border-border pt-14">
+      <div className="mt-14 border-t border-border pt-14">
+        <Container className="max-w-4xl">
           <Reveal>
             <h2 className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-muted-soft">
               Screenshots
             </h2>
           </Reveal>
-          <div className="mt-6">
-            <ProjectGallery images={images} slug={project.slug} />
-          </div>
+        </Container>
+        <div className="mt-6">
+          {images.length > 0 ? (
+            <ProjectSlideshow images={images} title={project.title} />
+          ) : (
+            <Container className="max-w-4xl">
+              <div className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-accent-soft-border bg-accent-soft/40 py-24 text-center">
+                <p className="text-sm font-medium text-accent-hover">Screenshots coming soon</p>
+                <p className="max-w-sm text-xs text-muted">
+                  Drop image files into{" "}
+                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-[0.85em]">
+                    public/assets/projects/{project.slug}/
+                  </code>{" "}
+                  and they&apos;ll appear here automatically on the next build.
+                </p>
+              </div>
+            </Container>
+          )}
         </div>
+      </div>
 
+      <Container className="max-w-4xl">
         {caseStudy && (
           <div className="mt-14 space-y-10 border-t border-border pt-14">
             {caseStudy.problem && (

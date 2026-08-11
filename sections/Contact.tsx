@@ -6,10 +6,16 @@ import { withBasePath } from "@/lib/basePath";
 
 export function Contact({ cvAvailable }: { cvAvailable: boolean }) {
   return (
-    <section id="contact" className="border-t border-border py-24 sm:py-32">
+    <section
+      id="contact"
+      className="flex min-h-[85vh] items-center border-t border-border py-24 sm:py-32"
+    >
       <Container className="max-w-3xl text-center">
         <Reveal>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-soft">
+            Contact
+          </p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
             Let&apos;s build something meaningful.
           </h2>
         </Reveal>
@@ -28,21 +34,17 @@ export function Contact({ cvAvailable }: { cvAvailable: boolean }) {
         </Reveal>
 
         <Reveal delay={0.2}>
+          {/* LinkedIn/GitHub live in the footer below as icons — kept out of
+              here so the social links aren't duplicated across the page. */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button href={`mailto:${site.email}`} variant="primary" external>
               Email Me
-            </Button>
-            <Button href={site.linkedin} variant="secondary" external>
-              LinkedIn
-            </Button>
-            <Button href={site.github} variant="secondary" external>
-              GitHub
             </Button>
             <Button
               href={cvAvailable ? withBasePath(`/cv/${site.cvFileName}`) : undefined}
               download={cvAvailable}
               disabled={!cvAvailable}
-              variant="ghost"
+              variant="secondary"
             >
               {cvAvailable ? "Download CV" : "CV coming soon"}
             </Button>
