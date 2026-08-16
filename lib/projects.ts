@@ -261,6 +261,39 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "fitmaker",
+    title: "Fitmaker",
+    category: "Fitness · Personalized Training Platform",
+    description:
+      "Designed and developed the frontend for a premium, data-driven fitness platform featuring personalized weekly training plans, exercise discovery, progress tracking, and AI-powered coaching — built with a scalable, data-driven architecture connected to real fitness APIs.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    role: "Frontend Development · UI/UX & Interface Design",
+    proprietary: false,
+    featured: true,
+    order: 9,
+    caseStudy: {
+      problem:
+        "Personal training needed to adapt to the individual rather than forcing users into a one-size-fits-all program, while presenting progress and coaching honestly without inventing metrics or results.",
+      contribution:
+        "Designed and developed the frontend experience, translating the product concept into a polished, responsive interface while establishing reusable components, data-driven sections, responsive layouts, and a scalable foundation for integrating the fitness APIs.",
+      keyFeatures: [
+        "Personalized weekly training plans",
+        "Today's Training daily workout preview",
+        "Weekly training structure visualization",
+        "Exercise discovery with real exercise data",
+        "Progress tracking",
+        "AI coaching & monthly recaps",
+      ],
+      technicalHighlights: [
+        "Data-driven architecture connected to real backend/fitness APIs",
+        "Reusable component & section architecture with modern React patterns",
+        "Editorial-inspired, premium responsive UI with Tailwind CSS",
+      ],
+      outcome:
+        "A modern fitness experience that bridges training, personalization, data, and AI coaching — presenting complex fitness functionality through a simple and premium user experience.",
+    },
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
