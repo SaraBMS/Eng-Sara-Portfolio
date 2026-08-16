@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { withBasePath } from "@/lib/basePath";
 import { site } from "@/lib/site";
 
 const heroTech = ["React.js", "Next.js", "React Native", "TypeScript"];
@@ -19,7 +20,7 @@ export function Hero() {
     >
       <div className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[48%] lg:block" aria-hidden="true">
         <Image
-          src="/assets/scenes/hero-3d.jpg"
+          src={withBasePath("/assets/scenes/hero-3d.jpg")}
           alt=""
           fill
           priority

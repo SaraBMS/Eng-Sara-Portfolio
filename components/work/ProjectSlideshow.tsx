@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { withBasePath } from "@/lib/basePath";
 import type { ProjectImage } from "@/lib/getProjectImages";
 
 const AUTOPLAY_MS = 5000;
@@ -64,7 +65,7 @@ export function ProjectSlideshow({
         >
           <div className="relative h-full w-full">
             <Image
-              src={current.src}
+              src={withBasePath(current.src)}
               alt={current.alt}
               fill
               sizes="100vw"

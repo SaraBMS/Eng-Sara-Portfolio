@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/lib/site";
 import { experience, education } from "@/lib/experience";
 import { cn } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 const facts = [
   { label: "Focus", value: "Frontend & React Native Development" },
@@ -84,7 +85,7 @@ export function About() {
 
         <Reveal delay={0.05} className="relative mt-16 h-28 w-full overflow-hidden rounded-2xl sm:h-36">
           <Image
-            src="/assets/scenes/visual-data-3d.jpg"
+            src={withBasePath("/assets/scenes/visual-data-3d.jpg")}
             alt=""
             fill
             sizes="100vw"

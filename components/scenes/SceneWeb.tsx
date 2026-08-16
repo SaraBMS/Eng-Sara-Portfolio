@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { Tag } from "@/components/ui/Tag";
+import { withBasePath } from "@/lib/basePath";
 import { techStack } from "@/lib/techStack";
 
 // Sits in the still-dark part of the page's atmosphere — on-dark token set,
@@ -54,7 +55,7 @@ export function SceneWeb() {
           <Reveal delay={0.14} className="relative hidden lg:block">
             <div className="absolute inset-4 -z-10 rounded-full bg-on-dark-accent-soft blur-3xl" aria-hidden="true" />
             <Image
-              src="/assets/scenes/visual-web-3d.jpg"
+              src={withBasePath("/assets/scenes/visual-web-3d.jpg")}
               alt=""
               width={1600}
               height={1008}

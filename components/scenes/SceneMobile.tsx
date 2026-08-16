@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { Tag } from "@/components/ui/Tag";
+import { withBasePath } from "@/lib/basePath";
 import { techStack } from "@/lib/techStack";
 
 // Same treatment as SceneWeb, one step further into the atmosphere's dusk
@@ -19,7 +20,7 @@ export function SceneMobile() {
           <Reveal delay={0.14} className="relative order-2 hidden lg:order-1 lg:block">
             <div className="absolute inset-4 -z-10 rounded-full bg-on-dark-accent-soft blur-3xl" aria-hidden="true" />
             <Image
-              src="/assets/scenes/visual-mobile-3d.jpg"
+              src={withBasePath("/assets/scenes/visual-mobile-3d.jpg")}
               alt=""
               width={1600}
               height={1008}
