@@ -50,7 +50,7 @@ export function About() {
                 With a background in Mechatronics Engineering, I bring an analytical and
                 structured approach to solving technical problems while staying focused on
                 product quality and user experience. I&apos;m currently open to frontend and React
-                Native opportunities and open to relocating to the UAE.
+                Native opportunities and open to relocating.
               </p>
             </Reveal>
           </div>
