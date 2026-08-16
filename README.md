@@ -43,3 +43,4 @@ sections/       Homepage sections (Hero, Selected Work, About, Experience, Skill
 lib/            Typed content data + small server-only helpers (image scan, CV check, basePath)
 public/         Static assets — project screenshots and the CV go here
 ```
+"# Eng-Sara-Portfolio" 
